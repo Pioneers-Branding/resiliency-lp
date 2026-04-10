@@ -134,10 +134,6 @@
                         <input type="text" class="f-input" placeholder="First name" required>
                       </div>
                       <div class="f-field">
-                        <label>Last Name</label>
-                        <input type="text" class="f-input" placeholder="Last name" required>
-                      </div>
-                      <div class="f-field">
                         <label>Phone</label>
                         <input type="tel" class="f-input" placeholder="(949) 555-0123" required>
                       </div>
@@ -152,15 +148,15 @@
                       <label>Area of Interest</label>
                       <select class="f-input" required>
                         <option value="" disabled selected>Select your condition</option>
-                        <option>Depression</option>
-                        <option>Anxiety</option>
-                        <option>OCD</option>
-                        <option>PTSD</option>
-                        <option>ADHD</option>
-                        <option>Bipolar Disorder</option>
-                        <option>TMS Therapy</option>
-                        <option>SPRAVATO</option>
-                        <option>Other</option>
+                        <option value="Depression">Depression</option>
+                        <option value="Anxiety">Anxiety</option>
+                        <option value="OCD">OCD</option>
+                        <option value="PTSD">PTSD</option>
+                        <option value="ADHD">ADHD</option>
+                        <option value="Bipolar Disorder">Bipolar Disorder</option>
+                        <option value="TMS Therapy">TMS Therapy</option>
+                        <option value="SPRAVATO">SPRAVATO</option>
+                        <option value="Other">Other</option>
                       </select>
                     </div>
                   </div>
@@ -903,8 +899,7 @@
     // Form
     document.getElementById('heroForm').addEventListener('submit', e => {
       e.preventDefault();
-      alert('Thank you! Our team will contact you shortly.');
-      e.target.reset();
+      window.location.href = 'thank-you.html';
     });
 
     // Hero particles
