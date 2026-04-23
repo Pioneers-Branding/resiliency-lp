@@ -52,6 +52,24 @@
       padding: 60px 0
     }
 
+    /* ── Scroll-reveal animation ── */
+    .ao {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity .65s var(--ease), transform .65s var(--ease);
+    }
+
+    .ao.vis {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .ao-d1 { transition-delay: .12s }
+    .ao-d2 { transition-delay: .22s }
+    .ao-d3 { transition-delay: .32s }
+    .ao-d4 { transition-delay: .42s }
+    .ao-d5 { transition-delay: .52s }
+
     @media(max-width:767.98px) {
       .sec {
         padding: 45px 0
