@@ -36,8 +36,7 @@
           <li class="nav-item"><a class="nav-link" href="#process">The Process</a></li>
           <li class="nav-item"><a class="nav-link" href="#faq">FAQs</a></li>
           <li class="nav-item ms-lg-2"><a class="nav-link nav-cta-btn cta-scroll" href="#heroForm"
-              style="color:white !important;">Book Free
-              Consultation</a></li>
+              style="color:white !important;">Book Consultation</a></li>
         </ul>
       </div>
     </div>
@@ -114,7 +113,7 @@
           </div>
         </div>
         <div class="col-lg-5">
-          <div class="hero-right">
+          <div class="hero-right" id="heroForm">
             <div class="hero-card">
               <!-- Clinic Photo -->
               <img src="assets/images/hero-banner-img.webp" alt="Resiliency Mind + Body Medicine Clinic"
@@ -450,7 +449,7 @@
                   <path
                     d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z" />
                 </svg></div>
-              <h4>Step 1: Free Consultation</h4>
+              <h4>Step 1: Consultation</h4>
               <p>Meet with our board-certified psychiatrist to review your history and determine if Deep TMS is right
                 for you. No obligation, no cost.</p>
             </div>
@@ -676,7 +675,7 @@
                   </svg></span>
               </button>
               <div class="faq-body">
-                <p>Simply schedule a free consultation through our website or call (949) 996-5355. During your initial
+                <p>Simply schedule a consultation through our website or call (949) 996-5355. During your initial
                   visit, our psychiatrist will evaluate your condition, review your TMS candidacy, and build your
                   personalized Deep TMS protocol &mdash; so you can start treatment quickly.
                 </p>
@@ -823,14 +822,24 @@
         e.preventDefault();
         const form = document.getElementById('heroForm');
         if (!form) return;
-        const navHeight = document.getElementById('mainNav').offsetHeight;
-        const formTop = form.getBoundingClientRect().top + window.scrollY - navHeight - 20;
-        window.scrollTo({ top: formTop, behavior: 'smooth' });
-        // Focus first input after scroll completes
-        setTimeout(() => { form.querySelector('input')?.focus(); }, 600);
-        // Close mobile menu if open
-        const collapse = bootstrap.Collapse.getInstance(document.getElementById('navMenu'));
-        if (collapse) collapse.hide();
+
+        const navMenu = document.getElementById('navMenu');
+        const collapse = bootstrap.Collapse.getInstance(navMenu);
+        const isOpen = navMenu.classList.contains('show');
+
+        function scrollToForm() {
+          const navHeight = document.getElementById('mainNav').offsetHeight;
+          const formTop = form.getBoundingClientRect().top + window.scrollY - navHeight - 20;
+          window.scrollTo({ top: formTop, behavior: 'smooth' });
+        }
+
+        if (isOpen && collapse) {
+          // Wait for Bootstrap collapse animation to finish (~350ms) before scrolling
+          collapse.hide();
+          navMenu.addEventListener('hidden.bs.collapse', scrollToForm, { once: true });
+        } else {
+          scrollToForm();
+        }
       });
     });
 
