@@ -812,6 +812,14 @@
       background-clip: text;
     }
 
+    .hero-stat-num sup {
+      -webkit-text-fill-color: var(--teal);
+      color: var(--teal);
+      font-size: .55em;
+      font-weight: 600;
+      margin-left: 2px;
+    }
+
     .hero-stat-lab {
       font: 500 .68rem/1.2 var(--sans);
       color: rgba(255, 255, 255, .7);
@@ -1433,6 +1441,14 @@
       background-clip: text;
     }
 
+    .ts-n sup {
+      -webkit-text-fill-color: var(--teal);
+      color: var(--teal);
+      font-size: .55em;
+      font-weight: 600;
+      margin-left: 2px;
+    }
+
     .ts p {
       font-size: .74rem;
       color: rgba(255, 255, 255, .7);
@@ -1698,6 +1714,12 @@
       font: 800 1.6rem/1 var(--sans);
       color: var(--teal);
       margin-bottom: 4px
+    }
+
+    .phil-stat-num sup {
+      font-size: .55em;
+      font-weight: 600;
+      margin-left: 2px;
     }
 
     .phil-stat-lab {
@@ -2460,6 +2482,17 @@
       padding-top: 22px;
       font-size: .76rem;
       color: rgba(255, 255, 255, .7)
+    }
+
+    .foot-disclaimer {
+      padding: 18px 0 14px;
+      font-size: .72rem;
+      color: rgba(255, 255, 255, .55);
+      font-style: italic;
+    }
+
+    .foot-disclaimer p {
+      margin: 0;
     }
 
     .foot-legal a {
